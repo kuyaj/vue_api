@@ -46,6 +46,9 @@ export default {
     },
     edit_post(){
       // edit business logic here
+    },
+    get_post(){
+      // gets particular post
     }
   },
   async created(){

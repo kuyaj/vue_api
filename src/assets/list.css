@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
+
+.list-view {
+    border: transparent;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Chilanka', cursive;
+  }
+  
+  .list-view-item {
+    border: transparent;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    background: #fafafa;
+  }
+  .list-view-subitem {
+    border: transparent;
+    padding: 10px;
+    flex: 4;
+  }
+  
+  .list-view-subitem input {
+    border: transparent;
+    border-radius: 3px;
+    padding: 5px;
+    width: 100%;
+    font-family: 'Chilanka', cursive;
+    font-size: 15px;
+    background: #ecf0f1;
+    margin-bottom: 2px;
+  }
+  
+  input:focus {
+    outline: 4 px solid #0082c8;
+  }
+  
+  .list-view-button-group {
+    border: transparent;
+    flex:1;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .list-view-remove-item {
+    border: transparent;
+    border-radius: 1px;
+    color: #fafafa;
+    padding: 10px;
+    flex: 1;
+    font-family: 'Chilanka', cursive;
+    font-size: 15px;
+    font-weight: bold;
+    background: #FF512F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    outline: none;
+  }
+  
+  .list-view-edit-item {
+    border: transparent;
+    border-radius: 1px;
+    padding: 10px;
+    flex: 1;
+    color: #fafafa;
+    font-family: 'Chilanka', cursive;
+    font-size: 15px;
+    font-weight: bold;
+    background: #667db6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    outline: none;
+  }
+  
+  .list-view-done-item {
+    border: transparent;
+    border-radius: 1px;
+    padding: 3px;
+    flex: 1;
+    color: #fafafa;
+    font-family: 'Chilanka', cursive;
+    font-size: 15px;
+    outline: none;
+    background: #00F260;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  }
+  
+  

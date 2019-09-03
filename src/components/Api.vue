@@ -1,9 +1,6 @@
 <template>
   <div class="Api">
    <div class="card"> 
-
-   {{ save.title }}
-   {{ save.body }}
     <div class="card-content">
       <input v-model="save.title" type="text" class="input-field" placeholder="Title">
       <input v-model="save.body" type="text" class="input-field" placeholder="Body" >
@@ -12,26 +9,26 @@
    </div>
 
    <div class="list-view" v-for="(post, index) in posts" :key="index">
-      <div v-if="!isEditing" class="list-view-item">
+      <div v-if="!post.isEditing" class="list-view-item">
         <div class="list-view-subitem">
-          {{  post.title }} <br>
+          {{  post.title }} 
         </div>
         <div class="list-view-subitem">
           {{  post.body }} 
         </div>
         <div class="list-view-button-group">
             <button class="list-view-remove-item" @click="delete_post(post.id)">Remove</button>
-            <button class="list-view-edit-item" @click="toggle(post)">Edit</button>
+            <button class="list-view-edit-item" @click="toggleEdit(post)">Edit</button>
         </div>
       </div>
       <div v-else class="list-view-item">
-        <div class="list-view-subitem">
-          <input type="text" class="input-field" placeholder="title">
-          <input type="text" class="input-field" placeholder="body">
+        <div class="list-view-subitem"> 
+          <input :value="post.title" @input="post.title = $event.target.value" type="text" class="input-field" placeholder="title">
+          <input :value="post.body"  @input="post.body = $event.target.value" type="text" class="input-field" placeholder="body">
         </div>
         <div class="list-view-button-group">
-        {{ post.isEditing }}
-            <button class="list-view-edit-item" @click="toggle(post)">Edit</button>
+            <button class="list-view-edit-item" @click="update_post(post)">Update</button>
+            <button class="list-view-done-item" @click="toggleEdit(post)">Done</button>
         </div>
       </div>
    </div>
@@ -54,6 +51,9 @@ export default {
     }
   },
   methods: {
+     toggleEdit(post){
+      post.isEditing = !post.isEditing;
+    },
     save_post(){
       if(!this.save.title == '' && !this.save.body == ''){
        fetch(this.url, {
@@ -91,11 +91,24 @@ export default {
         }
       }).catch(err => console.log(err));
     },
-    update_post(){
-      // edit business logic here
-    },
-    get_post(){
-      // gets particular post
+    update_post(post){
+      fetch(this.url.concat(post.id), {
+        method: 'PUT',
+        body: JSON.stringify({
+          title: post.title,
+          body: post.body,
+        }),
+        headers: {
+          "Content-type": "application/json"
+        }
+       })
+        .then(response => {
+          if(response.ok){
+            alert("Data is updated!");
+            post.isEditing = !post.isEditing;
+          }
+        })
+
     },
     async all_post(){
         let response = await fetch(this.url);
@@ -103,9 +116,11 @@ export default {
         if(response.ok) {
          this.posts =  Object.keys(data).map(key => {
             return {
-              id: key, 
+              id: data[key].id, 
               title: data[key].title,
               body: data[key].body,
+              created_at: data[key].created_at,
+              updated_at: data[key].updated_at,
               isEditing: false
             }
           })
@@ -113,10 +128,8 @@ export default {
         else {
           console.log(response.error);
         }
-    },
-    toggle(post){
-      alert("This works ofcourse "+post.isEditing )
     }
+   
   },
   created(){
     this.all_post();

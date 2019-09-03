@@ -85,6 +85,7 @@
     color: #fafafa;
     font-family: 'Chilanka', cursive;
     font-size: 15px;
+    font-weight: bold;
     outline: none;
     background: #00F260;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */

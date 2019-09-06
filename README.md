@@ -1,29 +1,9 @@
-# api_vue
+# api vue
 
-## Project setup
-```
-npm install
-```
+![Vue SC](https://user-images.githubusercontent.com/22487392/64421698-c77ccd80-d0d4-11e9-9d32-8a239ab1a210.png)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## npm install
+## npm run serve
+## npm run build
+## npm run test
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
